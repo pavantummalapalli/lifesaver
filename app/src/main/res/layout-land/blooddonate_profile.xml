@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/blooddonate_profile_background1"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/name_et_profile"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="35dp"
+                android:hint="Name"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                />
+            <Switch
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:textSize="18sp"
+                android:text="Healthy Enough to Donate Blood Now?"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/healthy" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="30"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Gender"
+                    android:textColor="#000000"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/gender_rg_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="70"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/male_rb_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:textSize="18sp"/>
+
+                    <RadioButton
+                        android:id="@+id/female_rb_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="Female"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="37"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Date of Birth"
+                    android:textColor="#000000"
+                    />
+
+                <EditText
+                    android:id="@+id/day_et_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="15"
+                    android:layout_height="35dp"
+                    android:inputType="number"
+                    android:hint="Day"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/month_et_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="20"
+                    android:layout_height="35dp"
+                    android:inputType="number"
+                    android:hint="Month"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical" />
+                <EditText
+                    android:id="@+id/year_et_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="28"
+                    android:layout_height="35dp"
+                    android:inputType="number"
+                    android:hint="Year"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="60"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Your Blood Group"
+                    android:textColor="#000000"
+                    />
+                <Spinner
+                    android:id="@+id/bloodgroupselect_sp_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="40"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+
+                    android:entries="@array/blood_group_type"
+                    android:prompt="@string/choose_bloodgroup"
+                    android:spinnerMode="dropdown"
+                    android:transitionGroup="true" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_marginTop="5dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Smoker"
+                    android:textColor="#000000"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/smoker"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/smoker_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textSize="18sp"/>
+
+                    <RadioButton
+                        android:id="@+id/smoker_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="YES"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Drinker"
+                    android:textColor="#000000"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/drinker"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/drinker_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textSize="18sp"/>
+
+                    <RadioButton
+                        android:id="@+id/drinker_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="YES"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Drug Addictions"
+                    android:textColor="#000000"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/drug"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/drug_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textSize="18sp"/>
+
+                    <RadioButton
+                        android:id="@+id/drug_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="YES"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Major Disease"
+                    android:textColor="#000000"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/disease"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/disease_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"
+                        android:textSize="18sp"/>
+
+                    <RadioButton
+                        android:id="@+id/disease_yes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="YES"
+                        android:textSize="18sp"/>
+                </RadioGroup>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/mobile_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:inputType="phone"
+                android:ems="10"
+                android:hint="Mobile Number"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal" />
+
+
+
+
+            <EditText
+                android:id="@+id/email_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:hint="Email Adress"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal" />
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:weightSum="100"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical">
+
+                <EditText
+                    android:id="@+id/state_et_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="35dp"
+                    android:hint="State"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_horizontal" />
+                <EditText
+                    android:id="@+id/city_et_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:layout_height="35dp"
+                    android:hint="City"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/pincode_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:inputType="number"
+                android:hint="Area Pincode"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal" />
+
+
+            <Button
+                android:id="@+id/save_btn_profile"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:text="SAVE"
+                android:textSize="22sp"
+                android:layout_gravity="center_horizontal" />
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+</LinearLayout>

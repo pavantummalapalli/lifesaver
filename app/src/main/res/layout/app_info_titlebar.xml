@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_info_titlebar"
+    android:layout_width="400dp"
+    android:layout_height="60dp"
+    android:background="#ff646cd9"
+    android:orientation="horizontal">
+
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/app_info"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Application Infomation"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+
+
+        />
+
+
+</LinearLayout>

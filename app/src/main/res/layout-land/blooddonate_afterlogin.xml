@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blooddonate_afterlogin_background">
+
+
+    <Button
+        android:id="@+id/searchdonor_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/searchdonorbutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="Search Donor"
+        android:layout_below="@+id/searchdonor_btn"
+        android:layout_marginLeft="48dp"/>
+
+
+    <Button
+        android:id="@+id/searchdonormap_btn"
+        android:layout_width="144dp"
+        android:layout_height="100dp"
+        android:background="@drawable/searchonmapbutton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="Search on Map"
+        android:layout_below="@+id/searchdonormap_btn"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/profile_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/profilebutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="160dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="My Profile"
+        android:layout_below="@+id/profile_btn"
+        android:layout_marginLeft="65dp" />
+
+    <Button
+        android:id="@+id/youtube_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/youtubebutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="Youtube Videos"
+        android:layout_below="@+id/youtube_btn"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"/>
+
+    <Button
+        android:id="@+id/tips_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/tipsbutton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="160dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="Tips"
+        android:layout_below="@+id/tips_btn"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/logout_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/logoutbutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="160dp" />
+
+    <TextView
+        style="@style/blooddonate_afterlogin_text"
+        android:text="Log Out"
+        android:layout_below="@+id/logout_btn"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="73dp"/>
+
+</RelativeLayout>

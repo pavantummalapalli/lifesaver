@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_info_background">
+
+    <LinearLayout
+        android:id="@+id/filterselect_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:weightSum="100"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <Spinner
+            android:id="@+id/bloodgroupselect_sp_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:entries="@array/blood_group_type"
+            android:prompt="@string/choose_bloodgroup"
+            android:spinnerMode="dropdown"
+            android:transitionGroup="true"
+            android:scrollbarSize="10dp"
+            />
+        <EditText
+            android:id="@+id/city_et_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="60"
+            android:hint="City Name"
+            />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/filter_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Press to filter"
+        android:textSize="20sp"
+        android:layout_below="@+id/filterselect_search"
+        android:layout_alignLeft="@+id/filterselect_search"
+        android:layout_alignRight="@+id/filterselect_search"
+        />
+
+    <LinearLayout
+        android:id="@+id/top_list"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/filter_btn"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:weightSum="100"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:id="@+id/username_tv_search"
+            android:layout_width="0dp"
+            android:textSize="18sp"
+            android:text="Username"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="33"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#ff4472c4"/>
+        <TextView
+            android:id="@+id/mobile_tv_search"
+            android:layout_width="0dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Mobile No."
+            android:textSize="18sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="33"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#ff84a2d8" />
+        <TextView
+            android:id="@+id/bloodgroup_tv_search"
+            android:layout_width="0dp"
+            android:text="Blood Group"
+            android:textSize="18sp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_weight="34"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:background="#ff4472c4" />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/top_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>

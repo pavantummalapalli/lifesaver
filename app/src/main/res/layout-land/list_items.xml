@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/donor_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:weightSum="100"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    >
+    <TextView
+        android:id="@+id/username_tv_listitem"
+        android:layout_width="0dp"
+        android:textSize="17sp"
+        android:text="Username"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_weight="33"
+        android:textColor="#ffffff"
+        android:background="#ff258729" />
+    <TextView
+        android:id="@+id/mobile_tv_listitem"
+        android:layout_width="0dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Mobile No."
+        android:textSize="17sp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="33"
+        android:textColor="#ffffff"
+        android:background="#ff4bbe4a" />
+    <TextView
+        android:id="@+id/bloodgroup_tv_listitem"
+        android:layout_width="0dp"
+        android:text="Blood Group"
+        android:textSize="17sp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_weight="34"
+        android:textColor="#ffffff"
+        android:background="#ff258729" />
+
+</LinearLayout>
