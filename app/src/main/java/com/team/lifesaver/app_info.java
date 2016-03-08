@@ -1,4 +1,4 @@
-package com.example.ali.bloodbank;
+package com.team.lifesaver;
 
 import android.graphics.LinearGradient;
 import android.support.v7.app.ActionBar;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import com.team.lifesaver.R;
 
 /**
  * Created by ALI on 19/06/2015.

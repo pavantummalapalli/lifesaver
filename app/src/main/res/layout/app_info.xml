@@ -40,7 +40,7 @@
              android:layout_height="wrap_content"
              android:layout_gravity="center"
              android:textSize="20dp"
-             android:text="ASHIF ALI(CSE 3RD YEAR)"
+             android:text="Team LifeSaver"
              android:textColor="#ff0dce05"
              android:layout_marginBottom="30dp"
              />
