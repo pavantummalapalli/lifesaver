@@ -31,14 +31,6 @@ public class blooddonate_tips extends ActionBarActivity {
         getSupportActionBar().setCustomView(R.layout.blooddonate_titlebar);
         titlebartext=(TextView) findViewById(R.id.blooddonate_titlebar_text);
         titlebartext.setText("Tips");
-
-
-
-
-
-
-
-
     }
 
 

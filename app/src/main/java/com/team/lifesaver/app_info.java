@@ -19,18 +19,10 @@ public class app_info extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_info);
-
         // set title bar
         LinearLayout app_info_titlebar=(LinearLayout) findViewById(R.id.app_info_titlebar);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.app_info_titlebar);
-
-
-
-
-
-
-
 
     }
 

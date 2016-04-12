@@ -23,15 +23,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
+import com.team.lifesaver.handlers.UsersSearchHandler;
+import com.team.lifesaver.representations.User;
+import com.team.lifesaver.services.UsersSearchService;
 import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 
 /**
  * Created by ALI on 26/06/2015.
@@ -45,7 +43,7 @@ public class blooddonate_search extends ActionBarActivity {
     Button filter_btn; ListView listView;
 
     private ProgressDialog pDialog;
-    JSONParser jsonParser = new JSONParser();
+
     private static String url_fetch_data = "http://asli.esy.es/filter.php";
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_ARRAY = "userdata";
@@ -85,7 +83,7 @@ public class blooddonate_search extends ActionBarActivity {
                             new int[]{R.id.username_tv_listitem,R.id.mobile_tv_listitem,R.id.bloodgroup_tv_listitem});
 
                     listView.setAdapter(adapter);
-                    new loadall().execute();
+                    doUsersUsearch();
                 }
             }
         });
@@ -95,7 +93,6 @@ public class blooddonate_search extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i=new Intent(blooddonate_search.this,user_profile.class);
                 String ppp=((TextView) view.findViewById(R.id.username_tv_listitem)).getText().toString();
-
                 i.putExtra("username",ppp);
                 startActivity(i);
             }
@@ -103,80 +100,19 @@ public class blooddonate_search extends ActionBarActivity {
 
     }
 
-    class loadall extends AsyncTask<String,String,String>{
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(blooddonate_search.this);
-            pDialog.setMessage("Filtering Your Result...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
+    public void doUsersUsearch(){
+        String bloodgroup=bloodgroupselect_sp_search.getSelectedItem().toString();
+        String city=city_et_search.getText().toString();
+        User user = new User();
+        user.setBloodgroup(bloodgroup);
+        user.setCity(city);
+        UsersSearchHandler handler = new UsersSearchHandler(blooddonate_search.this,user,listView);
+        try {
+            UsersSearchService.usersSearchService(handler);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
-        protected String doInBackground(String... args) {
-            SharedPreferences sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-            String ss=sharedPreferences.getString(usernamekey,"");
-            String bloodgroup=bloodgroupselect_sp_search.getSelectedItem().toString();
-            String city=city_et_search.getText().toString();
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("bloodgroup", bloodgroup));
-            params.add(new BasicNameValuePair("city", city));
-            params.add(new BasicNameValuePair("username", ss));
-
-            JSONObject json = jsonParser.makeHttpRequest(url_fetch_data, "POST", params);
-
-            try {
-                int success = json.getInt(TAG_SUCCESS);
-
-                if (success == 1) {
-                    JSONArray jsonArray = json.getJSONArray(TAG_ARRAY);
-                    for (int i=0; i<jsonArray.length(); i++)
-                    {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        HashMap<String,String> hm = new HashMap<String,String>();
-                        String username_get=jsonObject.getString("username");
-                        String mobile_get=jsonObject.getString("mobile");
-                        String bloodgroup_get=jsonObject.getString("bloodgroup");
-                        hm.put("username",username_get);
-                        hm.put("mobile",mobile_get);
-                        hm.put("bloodgroup",bloodgroup_get);
-                        arrlist.add(hm);
-                    }
-
-                    return "success";
-                } else {
-                    return "failure";
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return "failure";
-        }
-
-        protected void onPostExecute(String s) {
-            if (s.equals("success"))
-            {
-                pDialog.dismiss();
-                ListAdapter adapter = new SimpleAdapter(blooddonate_search.this,arrlist,R.layout.list_items, new String[]{"username","mobile","bloodgroup"},
-                        new int[]{R.id.username_tv_listitem,R.id.mobile_tv_listitem,R.id.bloodgroup_tv_listitem});
-
-                listView.setAdapter(adapter);
-            }
-            else
-            {
-                pDialog.dismiss();
-                Toast.makeText(getApplicationContext(),"No Result Found",Toast.LENGTH_LONG).show();
-            }
-        }
-
-
-
-
     }
-
 
 
 }

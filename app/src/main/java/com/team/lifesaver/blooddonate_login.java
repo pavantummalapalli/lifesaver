@@ -17,14 +17,16 @@ import java.util.ArrayList;
 import java.util.List;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+
 import org.json.JSONException;
 import org.json.*;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+
 import org.json.JSONObject;
 import android.util.Log;
+
+import com.team.lifesaver.handlers.UserLoginHandler;
+import com.team.lifesaver.representations.User;
+import com.team.lifesaver.services.UserLoginService;
 
 /**
  * Created by ALI on 19/06/2015.
@@ -41,7 +43,6 @@ public class blooddonate_login extends ActionBarActivity {
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    JSONParser jsonParser = new JSONParser();
 
 
     private static String url_check = "http://asli.esy.es/login.php";
@@ -84,7 +85,7 @@ public class blooddonate_login extends ActionBarActivity {
                         }
                         else
                         {
-                            new validate().execute();
+                            doLogin();
                         }
                     }
                 }
@@ -101,74 +102,18 @@ public class blooddonate_login extends ActionBarActivity {
                 }
         );
 
-
-
-
     }
-  /*  @Override
-    protected void onResume() {
-        sharedPreferences=getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        if (sharedPreferences.contains(usernamekey))
-        {
-            Intent i = new Intent(blooddonate_login.this,blooddonate_afterlogin.class);
-            startActivity(i);
-        }
-        super.onResume();
-    }*/
-    class validate extends AsyncTask<String,String, String> {
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(blooddonate_login.this);
-            pDialog.setMessage("Loging In...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
 
-        protected String doInBackground(String... args)
-        {
-            String username=username_et.getText().toString();
-            String password=password_et.getText().toString();
-            List<NameValuePair> params=new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("username",username));
-            params.add(new BasicNameValuePair("password",password));
-            JSONObject json=jsonParser.makeHttpRequest(url_check,"POST",params);
-            try{
-                int success=json.getInt(TAG_SUCCESS);
-                if (success==1)
-                {
-                    return "success";
-                }
-                else
-                {
-                    return "failure";
-                }
+    public void doLogin(){
+        User user = new User();
+        user.setUsername(username_et.getText().toString());
+        user.setPassword(password_et.getText().toString());
 
-            }
-            catch (JSONException e)
-            {
-                e.printStackTrace();
-            }
-            return "failure";
-        }
-        protected void onPostExecute(String s)
-        {
-            pDialog.dismiss();
-            if (s.equals("success"))
-            {
-                sharedPreferences=getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                Editor editor=sharedPreferences.edit();
-                editor.putString(usernamekey,username);
-                editor.commit();
-                Intent i=new Intent(blooddonate_login.this,blooddonate_afterlogin.class);
-                finish();
-                startActivity(i);
-            }
-            else
-            {
-                Toast.makeText(getApplicationContext(),"Incorrect Username or Password",Toast.LENGTH_LONG).show();
-            }
+        UserLoginHandler userLoginHandler = new UserLoginHandler(blooddonate_login.this,user);
+        try {
+            UserLoginService.loginService(userLoginHandler);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

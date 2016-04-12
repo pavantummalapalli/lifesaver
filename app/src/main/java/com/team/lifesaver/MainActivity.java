@@ -51,7 +51,6 @@ public class MainActivity extends ActionBarActivity {
                 }
         );
 
-
         info.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
@@ -60,9 +59,6 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
         );
-
-
-
 
     }
 

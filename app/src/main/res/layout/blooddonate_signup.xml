@@ -8,6 +8,7 @@
         >
 
         <LinearLayout
+            android:id="@+id/signupLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
@@ -20,6 +21,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_height="40dp"
                 android:hint="Name"
+                android:inputType="text"
                 android:textSize="20sp"
                 android:gravity="center_vertical"/>
 
@@ -29,8 +31,31 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:hint="Username"
+                android:inputType="text"
                 android:textSize="20sp"
                 android:gravity="center_vertical" />
+
+            <EditText
+                android:id="@+id/password_et_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:hint="Password"
+                android:ems="10"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/repeatpassword_et_register"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:hint="Repeat Password"
+                android:ems="10"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:inputType="textPassword" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -79,7 +104,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:weightSum="100"
-                android:layout_height="35dp"
+                android:layout_height="200dp"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_vertical">
 
@@ -94,33 +119,11 @@
                     android:textColor="#000000"
                     />
 
-                <EditText
-                    android:id="@+id/day_et"
-                    android:layout_width="0dp"
-                    android:layout_weight="15"
+                <CalendarView
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:hint="Day"
-                    android:textSize="18sp"
-                    android:gravity="center_vertical" />
-                <EditText
-                    android:id="@+id/month_et"
-                    android:layout_width="0dp"
-                    android:layout_weight="20"
-                    android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:hint="Month"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical" />
-                <EditText
-                    android:id="@+id/year_et"
-                    android:layout_width="0dp"
-                    android:layout_weight="28"
-                    android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:hint="Year"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical" />
+                    android:id="@+id/calendarView"
+                    />
 
 
             </LinearLayout>
@@ -168,9 +171,6 @@
                 android:textSize="20sp"
                 android:gravity="center_vertical" />
 
-
-
-
             <EditText
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
@@ -178,13 +178,9 @@
                 android:layout_marginTop="5dp"
                 android:inputType="textEmailAddress"
                 android:ems="10"
-                android:hint="Email Adress (optional)"
+                android:hint="Email Address"
                 android:textSize="20sp"
                 android:layout_gravity="center_horizontal" />
-
-
-
-
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -193,6 +189,8 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_vertical">
+
+
 
                 <EditText
                     android:id="@+id/state_et"
@@ -212,8 +210,8 @@
                     android:layout_gravity="center_horizontal" />
             </LinearLayout>
 
-
             <EditText
+
                 android:id="@+id/pincode_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -224,26 +222,34 @@
                 android:layout_gravity="center_horizontal" />
 
             <EditText
-                android:id="@+id/password_et_register"
+                android:id="@+id/address_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
-                android:hint="Password"
-                android:ems="10"
+                android:inputType="text"
+                android:hint="Address"
                 android:textSize="20sp"
-                android:layout_gravity="center_horizontal"
-                android:inputType="textPassword" />
+                android:layout_gravity="center_horizontal" />
 
             <EditText
-                android:id="@+id/repeatpassword_et_register"
+                android:id="@+id/long_et"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
-                android:hint="Repeat Password"
-                android:ems="10"
+                android:inputType="text"
                 android:textSize="20sp"
-                android:layout_gravity="center_horizontal"
-                android:inputType="textPassword" />
+                android:visibility="invisible"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/lat_et"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal" />
 
             <Button
                 android:id="@+id/signup_btn_register"
@@ -254,12 +260,6 @@
                 android:text="Sign Up"
                 android:textSize="22sp"
                 android:layout_gravity="center_horizontal" />
-
-
-
-
-
-
 
         </LinearLayout>
 

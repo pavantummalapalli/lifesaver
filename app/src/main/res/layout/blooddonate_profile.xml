@@ -26,13 +26,6 @@
                 android:textSize="18sp"
                 android:layout_gravity="center_horizontal"
                 />
-            <Switch
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:textSize="18sp"
-                android:text="Healthy Enough to Donate Blood Now?"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/healthy" />
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -95,33 +88,11 @@
                     android:textColor="#000000"
                     />
 
-                <EditText
-                    android:id="@+id/day_et_profile"
-                    android:layout_width="0dp"
-                    android:layout_weight="15"
-                    android:layout_height="35dp"
-                    android:inputType="number"
-                    android:hint="Day"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical" />
-                <EditText
-                    android:id="@+id/month_et_profile"
-                    android:layout_width="0dp"
-                    android:layout_weight="20"
-                    android:layout_height="35dp"
-                    android:inputType="number"
-                    android:hint="Month"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical" />
-                <EditText
-                    android:id="@+id/year_et_profile"
-                    android:layout_width="0dp"
-                    android:layout_weight="28"
-                    android:layout_height="35dp"
-                    android:inputType="number"
-                    android:hint="Year"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical" />
+                <CalendarView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/calendarView"
+                    />
 
 
             </LinearLayout>
@@ -157,175 +128,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:weightSum="100"
-                android:layout_marginTop="5dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:text="Smoker"
-                    android:textColor="#000000"
-                    />
-
-                <RadioGroup
-                    android:id="@+id/smoker"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/smoker_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NO"
-                        android:textSize="18sp"/>
-
-                    <RadioButton
-                        android:id="@+id/smoker_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="YES"
-                        android:textSize="18sp"/>
-                </RadioGroup>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:weightSum="100"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:text="Drinker"
-                    android:textColor="#000000"
-                    />
-
-                <RadioGroup
-                    android:id="@+id/drinker"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/drinker_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NO"
-                        android:textSize="18sp"/>
-
-                    <RadioButton
-                        android:id="@+id/drinker_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="YES"
-                        android:textSize="18sp"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:weightSum="100"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:text="Drug Addictions"
-                    android:textColor="#000000"
-                    />
-
-                <RadioGroup
-                    android:id="@+id/drug"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/drug_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NO"
-                        android:textSize="18sp"/>
-
-                    <RadioButton
-                        android:id="@+id/drug_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="YES"
-                        android:textSize="18sp"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:weightSum="100"
-                android:layout_height="30dp"
-                android:layout_marginBottom="5dp"
-                android:layout_gravity="center_vertical">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="18sp"
-                    android:text="Major Disease"
-                    android:textColor="#000000"
-                    />
-
-                <RadioGroup
-                    android:id="@+id/disease"
-                    android:layout_width="0dp"
-                    android:layout_weight="50"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/disease_no"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NO"
-                        android:textSize="18sp"/>
-
-                    <RadioButton
-                        android:id="@+id/disease_yes"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="YES"
-                        android:textSize="18sp"/>
-                </RadioGroup>
-            </LinearLayout>
-
 
             <EditText
                 android:id="@+id/mobile_et_profile"
@@ -337,9 +139,6 @@
                 android:hint="Mobile Number"
                 android:textSize="18sp"
                 android:layout_gravity="center_horizontal" />
-
-
-
 
             <EditText
                 android:id="@+id/email_et_profile"
@@ -390,6 +189,39 @@
                 android:textSize="18sp"
                 android:layout_gravity="center_horizontal" />
 
+            <EditText
+                android:id="@+id/address_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                android:inputType="number"
+                android:hint="Address"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal" />
+
+
+            <EditText
+                android:id="@+id/long_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:visibility="invisible"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/lat_et_profile"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal" />
+
+
+
 
             <Button
                 android:id="@+id/save_btn_profile"
@@ -400,9 +232,6 @@
                 android:text="SAVE"
                 android:textSize="22sp"
                 android:layout_gravity="center_horizontal" />
-
-
-
 
 
 

@@ -23,14 +23,6 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ALI on 20/06/2015.
@@ -41,7 +33,7 @@ public class blooddonate_afterlogin extends ActionBarActivity {
     public static final String usernamekey="username";
     private ProgressDialog pDialog;
     private static String url_fetch_data = "http://asli.esy.es/place.php";
-    JSONParser jsonParser = new JSONParser();
+
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_ARRAY = "userdata";
 
@@ -76,7 +68,8 @@ public class blooddonate_afterlogin extends ActionBarActivity {
         searchdonormap_btn.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
-                        new placefinder().execute();
+                        Intent i = new Intent(getApplicationContext(),NearestUsersMapActivity.class);
+                        startActivity(i);
                     }
                 }
         );
@@ -133,10 +126,8 @@ public class blooddonate_afterlogin extends ActionBarActivity {
 
             }
         });
-
-
     }
-
+/*
     class placefinder extends AsyncTask<String,String, String>{
         @Override
         protected void onPreExecute() {
@@ -206,7 +197,7 @@ public class blooddonate_afterlogin extends ActionBarActivity {
 
 
     }
-
+*/
 
 
 }

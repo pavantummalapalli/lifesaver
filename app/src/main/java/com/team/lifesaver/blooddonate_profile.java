@@ -10,16 +10,15 @@ import android.view.View;
 import android.widget.*;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.*;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+
 import org.json.JSONObject;
 import android.util.Log;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import com.team.lifesaver.representations.User;
 
 import javax.microedition.khronos.egl.EGLDisplay;
 
@@ -32,20 +31,23 @@ public class blooddonate_profile extends ActionBarActivity {
     TextView titlebartext;
 
     EditText name_et_profile, day_et_profile,month_et_profile,year_et_profile,mobile_et_profile,email_et_profile,
-            state_et_profile,city_et_profile,pincode_et_profile;
+            state_et_profile,city_et_profile,pincode_et_profile,address_et_profile;
     Button save_btn_profile,edit_btn;
     Spinner bloodgroupselect_sp_profile;
     RadioGroup gender_rg_profile,smoker_rg_profile,drinker_rg_profile,drug_rg_profile,disease_rg_profile;
     RadioButton selected_profile;
     Switch healthy_sw_profile;
+    CalendarView calendar;
+    int year_,month_,day_;
+
 
     // Progress Dialog
     private ProgressDialog pDialog;
 
-    JSONParser jsonParser = new JSONParser();
 
-    private static String url_fetch_data = "http://asli.esy.es/readarow.php";
-    private static String url_update_profile = "http://asli.esy.es/updateprofile.php";
+
+    private static String url_fetch_data = "";
+    private static String url_update_profile = "";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
@@ -75,6 +77,8 @@ public class blooddonate_profile extends ActionBarActivity {
         state_et_profile=(EditText) findViewById(R.id.state_et_profile);
         city_et_profile=(EditText) findViewById(R.id.city_et_profile);
         pincode_et_profile=(EditText) findViewById(R.id.pincode_et_profile);
+        address_et_profile=(EditText)findViewById(R.id.address_et_profile);
+
         save_btn_profile=(Button) findViewById(R.id.save_btn_profile);
         edit_btn=(Button) findViewById(R.id.edit_btn);
         bloodgroupselect_sp_profile=(Spinner) findViewById(R.id.bloodgroupselect_sp_profile);
@@ -85,7 +89,7 @@ public class blooddonate_profile extends ActionBarActivity {
         disease_rg_profile=(RadioGroup) findViewById(R.id.disease);
         healthy_sw_profile=(Switch) findViewById(R.id.healthy);
         save_btn_profile.setEnabled(false);
-        new loadprofile().execute();
+        //new loadprofile().execute();
 
         edit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,21 +135,17 @@ public class blooddonate_profile extends ActionBarActivity {
         save_btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name=name_et_profile.getText().toString();
-                String day=day_et_profile.getText().toString();
-                String month=month_et_profile.getText().toString();
-                String year=year_et_profile.getText().toString();
-                String mobile=mobile_et_profile.getText().toString();
-                String state=state_et_profile.getText().toString();
-                String city=city_et_profile.getText().toString();
-                String pincode=pincode_et_profile.getText().toString();
+
+                doSaveUser();
+
+
                 if (name.equals("") || day.equals("") || month.equals("") || year.equals("") || mobile.equals("") || state.equals("") || city.equals("") || pincode.equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"All Fields are Mandatory except email",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    new updateprofile().execute();
+                    //new updateprofile().execute();
                 }
 
             }
@@ -155,6 +155,53 @@ public class blooddonate_profile extends ActionBarActivity {
 
     }
 
+    public void doSaveUser(){
+        int selected = gender_rg_profile.getCheckedRadioButtonId();
+        selected_profile = (RadioButton) findViewById(selected);
+        String dateofBirth = year_+"-"+month_+"-"+day_;
+
+        User user = new User();
+        user.setName(name_et_profile.getText().toString());
+        user.setGender(selected_profile.getText().toString());
+        user.setBloodgroup(bloodgroupselect_sp_profile.getSelectedItem().toString());
+        user.setDateOfBirth(dateofBirth);
+        user.setMobile(mobile_et_profile.getText().toString());
+        user.setEmail(email_et_profile.getText().toString());
+        user.setState(state_et_profile.getText().toString());
+        user.setCity(city_et_profile.getText().toString());
+        user.setPincode(Integer.parseInt(pincode_et_profile.getText().toString()));
+        user.setAddress(address_et_profile.getText().toString());
+    }
+
+
+    public void intialize_Calendar(){
+        calendar = (CalendarView) findViewById(R.id.calendarView);
+        calendar.setShowWeekNumber(false);
+        calendar.setFirstDayOfWeek(2);
+        //The background color for the selected week.
+        calendar.setSelectedWeekBackgroundColor(getResources().getColor(R.color.green));
+
+        //sets the color for the dates of an unfocused month.
+        calendar.setUnfocusedMonthDateColor(getResources().getColor(R.color.transparent));
+
+        //sets the color for the separator line between weeks.
+        calendar.setWeekSeparatorLineColor(getResources().getColor(R.color.transparent));
+
+        //sets the color for the vertical bar shown at the beginning and at the end of the selected date.
+        calendar.setSelectedDateVerticalBar(R.color.darkgreen);
+
+        //sets the listener to be notified upon selected date change.
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            //show the selected date as a toast
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                year_=year;
+                month_=month;
+                day_=day;
+            }
+        });
+    }
+/*
     class updateprofile extends AsyncTask<String,String,String>{
         protected void onPreExecute() {
             super.onPreExecute();
@@ -425,7 +472,8 @@ public class blooddonate_profile extends ActionBarActivity {
 
             }
         }
+        */
 
     }
 
-}
+
